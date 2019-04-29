@@ -25,13 +25,13 @@ steps:
 - script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
+    pip install coverage
+    pip install unittest-xml-reporting
   displayName: 'Install dependencies'
 
-- task: Python Unit Test@0
-  inputs:
-    pythonroot: './'
-    reqfile: 'requirements.txt'
-    testfilepattern: 'tests.py'
+- script: |
+    coverage run -m xmlrunner discover
+  displayName: 'Run Unit Tests'
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
