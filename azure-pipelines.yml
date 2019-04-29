@@ -27,12 +27,11 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-# Python package
 - task: Python Unit Test@0
   inputs:
+    pythonroot: './'
     reqfile: 'requirements.txt'
     testfilepattern: 'tests.py'
-  displayName: 'Unit test'
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
