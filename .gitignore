@@ -3,3 +3,5 @@ venv
 *.pyc
 app.db
 logs
+.coverage
+TEST*
