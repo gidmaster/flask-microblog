@@ -34,8 +34,8 @@ steps:
     testfilepattern: 'tests.py'
   displayName: 'Unit test'
 
-- task: PublishCodeCoverageResults@1
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
   inputs:
-    codeCoverageTool: Cobertura
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/**/htmlcov'
+    testResultsFiles: '**/test-*.xml'
+    testRunTitle: 'Publish test results for Python $(python.version)'
