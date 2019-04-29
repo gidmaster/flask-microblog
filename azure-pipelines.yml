@@ -32,6 +32,6 @@ steps:
 # Python package
 - task: Python Unit Test@0
   inputs:
-    reqfile: 'requiremnts.txt'
+    reqfile: 'requirements.txt'
     testfilepattern: 'tests.py'
   displayName: 'Unit test'
