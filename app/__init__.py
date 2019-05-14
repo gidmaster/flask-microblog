@@ -10,6 +10,8 @@ from flask_login import LoginManager
 import logging
 from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
+# Import Mail Module
+from flask_mail import Mail
 
 app = Flask(__name__)
 # Add config file
@@ -22,6 +24,8 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 # Automatic redirect for anomymous users
 login.login_view = 'login'
+# Add Mail module
+mail = Mail(app)
 
 
 if not app.debug:
