@@ -12,6 +12,8 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 import os
 # Import Mail Module
 from flask_mail import Mail
+# Import Bootstrap Module
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 # Add config file
@@ -26,6 +28,8 @@ login = LoginManager(app)
 login.login_view = 'login'
 # Add Mail module
 mail = Mail(app)
+# Add Bootstrap support
+bootstrap = Bootstrap(app)
 
 
 if not app.debug:
